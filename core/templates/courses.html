@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+
+{% block title %}All Courses{% endblock %}
+
+{% block css %}
+<style>
+	#course {
+		display: grid;
+		grid-template-columns: auto auto auto;
+	}
+	.course {
+	width: 90% !important;
+	height: 25rem !important;
+	margin: 20px;
+}
+
+img {
+	width: 120px !important;
+	height: 170px;
+	margin: auto;
+	display: inline-block;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<center class="my-4">
+<h1>All Courses</h1>	
+</center>
+<div id="course" class="container my-4 text-align-center">
+	{% for course in courses %}
+	<div class="card course" style="width: 18rem;">
+  <img src="/media/{{ course.course_photo}}" class="card-img-top mx-auto d-block my-3" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ course.course_name }}</h5>
+    <p class="card-text">{{ course.course_description }}</p>
+    <a href="{{ course.course_link }}" target="_blank" class="btn btn-outline-success d-block text-align-center">Watch Now</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

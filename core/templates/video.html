@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block css %}
+<style>
+	.tabOption {
+		font-size: 20px !important;
+	}
+</style>
+{% endblock %}
+{% block body %}
+<center>
+	<h1 class="my-4">{{ name }}</h1>
+</center>
+<div class="my-4 container">
+	<iframe width="760" height="515" src="{{ video.video_embed_code }}"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+</div>
+
+<!-- Tabs code -->
+<div class="container">
+	<ul class="nav nav-tabs my-4" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="tabOption nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Announcements</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="tabOption nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="tabOption nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit in eaque beatae enim quisquam repellat soluta, atque est. Magnam consectetur fuga assumenda similique tenetur sint vero inventore nemo non accusantium.</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae natus ad, molestiae a officiis aliquam, harum soluta recusandae hic et, deserunt consequatur amet. Dolore at accusamus libero officia, error quam.</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Aut temporibus sapiente minus, tenetur praesentium fuga ea alias delectus earum doloremque vitae excepturi consequatur atque eveniet quod odio est. Aliquam, molestiae.</div>
+</div>
+
+</div>
+{% endblock %}

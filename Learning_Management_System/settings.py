@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '(o2y(m5p#lc42dup&ch*btvb2mv&#un8bp*(4+%y^0ro3mg%aj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://dj-lms.herokuapp.com/', "127.0.0.1"]
 
 
 # Application definition

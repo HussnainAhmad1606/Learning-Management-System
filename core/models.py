@@ -17,7 +17,7 @@ class Video(models.Model):
 	video_name = models.CharField(max_length=50)
 	video_description = models.CharField(max_length=200)
 	video_embed_code = models.CharField(max_length=300)
-	video_category = models.ManyToManyField(Course)
+	video_category = models.ForeignKey(Course, default=0, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return f"{self.video_name}"

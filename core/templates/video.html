@@ -7,16 +7,76 @@
 	.tabOption {
 		font-size: 20px !important;
 	}
+
+	.main {
+		display: grid;
+		grid-template-columns: auto auto;
+	}
+
+	.playlist {
+		overflow: scroll;
+		max-height: 30rem;
+		width: 10rem;
+	}
+
+
+	.video {
+		text-decoration: none;
+		transition: 0.2s ease all;
+		padding: 10px 5px;
+	}
+	.video:hover {
+		background-color: grey;
+		opacity: 0.9;
+		color: white;
+	}
+
+	.current {
+		background-color: grey;
+		opacity: 0.5;
+		color: white;
+	}
+
+	.show {
+		display: block
+	}
+	.hide {
+		display: none
+	}
+
 </style>
 {% endblock %}
 {% block body %}
 <center>
 	<h1 class="my-4">{{ name }}</h1>
 </center>
-<div class="my-4 container">
+<div class="my-4 container main">
 	<iframe width="760" height="515" src="{{ video.video_embed_code }}"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
 </iframe>
+
+ 	
+ <div>
+<center>
+	 <button id="showHidePlaylist" class="btn btn-outline-danger my-4">Hide Playlist</button>
+</center>
+<div class="card playlist show" id="playlist" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">Playlist ({{ totalVideos }} Videos)</h5>
+    <hr>
+    <p class="card-text">{{ course.course_description }}</p>
+    {% for videos in allVideos %}
+    {% if videos.video_name == video.video_name %}
+     <a href="/video/{{ videos.video_name }}" class="d-block text-align-center video current">{{ videos.video_name}}</a>
+    {% else %}
+    <a href="/video/{{ videos.video_name }}" class="d-block text-align-center video">{{ videos.video_name}}</a>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+  </div>
+</div>
 </div>
 
 <!-- Tabs code -->
@@ -39,4 +99,25 @@
 </div>
 
 </div>
+{% endblock %}
+
+{% block js %}
+<script>
+	let button = document.getElementById("showHidePlaylist");
+	button.addEventListener("click", showHide)
+
+	function showHide() {
+		let playlist = document.getElementById("playlist")
+		if (playlist.classList.contains("show")) {
+			playlist.classList.remove("show");
+			playlist.classList.add("hide");
+			button.textContent = "Show Playlist";
+		}
+		else {
+			playlist.classList.remove("hide");
+			playlist.classList.add("show");
+			button.textContent = "Hide Playlist";
+		}
+	}
+</script>
 {% endblock %}

@@ -22,12 +22,18 @@ def handleSignup(request):
 
 def specificVideo(request, name):
 	video = Video.objects.filter(video_name=name)
+	category = video[0].video_category
+	print(category)
+	allVideos = Video.objects.filter(video_category=category)
+	totalVideos = len(allVideos)
 	print(f"Video: {video}")
 	videoName = video[0].video_name.replace("-", " ")
 	print(videoName)
 	params = {
 	"video": video[0],
-	"name": videoName
+	"name": videoName,
+	"allVideos": allVideos,
+	"totalVideos": totalVideos
 	}
 	return render(request, "video.html", params)
 

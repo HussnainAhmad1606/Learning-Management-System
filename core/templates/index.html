@@ -1,7 +1,23 @@
 {% extends 'basic.html' %}
 
-{% block title %}Hello {% endblock %}
+{% block title %}Homepage - CodeHub{% endblock %}
 
+{% block css %}
+<style>
+	.container {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+</style>
+{% endblock %}
 {% block body %}
-<h1>Hello</h1>
+<div class="container">
+	<h1>CodeHub - Great Website to Learn Creativity</h1>
+	<p>In CodeHub, you can search for variety of courses available free of cost for anyone who want to learn his/her favourite skill without paying price</p>
+	<a href="{% url 'courses' %}" class="btn btn-success">Show Courses</a>
+</div>
 {% endblock %}

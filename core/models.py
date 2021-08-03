@@ -20,4 +20,4 @@ class Video(models.Model):
 	video_category = models.ForeignKey(Course, default=0, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return f"{self.video_name}"
+		return f"{self.video_category}: {self.video_name}"

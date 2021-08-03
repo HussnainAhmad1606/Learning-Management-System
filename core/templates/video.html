@@ -57,15 +57,13 @@
 
  	
  <div>
-<center>
-	 <button id="showHidePlaylist" class="btn btn-outline-danger my-4">Hide Playlist</button>
-</center>
+
 <div class="card playlist show" id="playlist" style="width: 18rem;">
 
   <div class="card-body">
     <h5 class="card-title">Playlist ({{ totalVideos }} Videos)</h5>
     <hr>
-    <p class="card-text">{{ course.course_description }}</p>
+    <p class="card-text"></p>
     {% for videos in allVideos %}
     {% if videos.video_name == video.video_name %}
      <a href="/video/{{ videos.video_name }}" class="d-block text-align-center video current">{{ videos.video_name}}</a>
@@ -76,6 +74,10 @@
 
   </div>
   </div>
+
+  <center>
+	 <button id="showHidePlaylist" class="btn btn-outline-danger my-4">Hide Playlist</button>
+</center>
 </div>
 </div>
 

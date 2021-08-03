@@ -1,12 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Course, Video
+
 def index(request):
 	return render(request, "index.html")
 
 
-def handleLogin(request):
-	return HttpResponse("Sign In Page")
 
 
 def courses(request):
@@ -15,9 +14,6 @@ def courses(request):
 	'courses': allCourses
 	}
 	return render(request, "courses.html", params)
-
-def handleSignup(request):
-	return HttpResponse("Sign Up Page")
 
 
 def specificVideo(request, name):
@@ -38,5 +34,6 @@ def specificVideo(request, name):
 	return render(request, "video.html", params)
 
 
-def handleLogout(request):
-	return HttpResponse("You have logged out successfully")
+
+def about(request):
+	return render(request, "about.html")
